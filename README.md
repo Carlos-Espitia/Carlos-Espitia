@@ -1,7 +1,7 @@
 <h1 align="center">Hey, I'm Carlos 👋</h1>
 
 <p align="center">
-  CS Sophomore @ UNC Charlotte &nbsp;·&nbsp; QA & Automation &nbsp;·&nbsp; Dean's List (3.79 GPA)
+  CS Student @ UNC Charlotte &nbsp;·&nbsp; QA & Automation
 </p>
 
 <p align="center">
@@ -9,11 +9,6 @@
   &nbsp;
   <a href="mailto:Cehernandez006@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white"/></a>
 </p>
-
----
-
-I build automation tools, backend systems, and AI-driven pipelines that solve real problems — fast.  
-Currently a **QA Intern at MarrLabs**, where I cut debugging latency by 83% and automated end-to-end testing for production AI agents.
 
 ---
 
@@ -41,14 +36,14 @@ Currently a **QA Intern at MarrLabs**, where I cut debugging latency by 83% and 
 
 ---
 
-### Featured Projects
+### Recent Projects
 
 | Project | Description | Stack |
 |---|---|---|
-| [Financial Backtesting Tool](https://github.com/Carlos-Espitia/financial-backtesting-tool) | Validates trading strategies against 1M+ rows of OHLCV market data | Python, Pandas, PyQt5, scikit-learn |
+| 🔒 handshake-bot | Automation bot | Python |
+| 🔒 financial-backtester-v2 | Backtesting tool for quantitative trading analysis | Python |
+| [sports-analytics](https://github.com/Carlos-Espitia/sports-analytics) | Sports data analytics | PHP |
 | [openclaw](https://github.com/Carlos-Espitia/openclaw) | Personal AI assistant — any OS, any platform | TypeScript |
-| [UnitedDB](https://github.com/Carlos-Espitia/UnitedDB-Website) | Full-stack MERN security database for the Minecraft server community | TypeScript, React, MongoDB |
-| [Summit EA](https://github.com/Carlos-Espitia/Summit-EA-Development) | Algorithmic forex trading bot | Python |
 
 ---
 
@@ -58,10 +53,4 @@ Currently a **QA Intern at MarrLabs**, where I cut debugging latency by 83% and 
   <img src="https://github-readme-stats.vercel.app/api?username=Carlos-Espitia&show_icons=true&theme=tokyonight&hide_border=true" height="150"/>
   &nbsp;
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Carlos-Espitia&layout=compact&theme=tokyonight&hide_border=true" height="150"/>
-</p>
-
----
-
-<p align="center">
-  <sub>Always building something. Open to opportunities.</sub>
 </p>
