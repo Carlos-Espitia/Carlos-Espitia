@@ -16,7 +16,7 @@ gh_headers = {
 
 
 def get_recent_repos():
-    url = f"https://api.github.com/user/repos"
+    url = "https://api.github.com/user/repos"
     params = {"sort": "pushed", "per_page": 20, "affiliation": "owner"}
     resp = requests.get(url, headers=gh_headers, params=params)
     resp.raise_for_status()
@@ -24,26 +24,27 @@ def get_recent_repos():
     return repos[:NUM_PROJECTS]
 
 
-def get_recent_commits(repo_name, count=5):
-    url = f"https://api.github.com/repos/{USERNAME}/{repo_name}/commits"
-    params = {"per_page": count}
+def get_file_tree(repo_name, default_branch):
+    url = f"https://api.github.com/repos/{USERNAME}/{repo_name}/git/trees/{default_branch}"
+    params = {"recursive": "1"}
     resp = requests.get(url, headers=gh_headers, params=params)
     if resp.status_code != 200:
         return []
-    return [c["commit"]["message"].split("\n")[0] for c in resp.json()]
+    items = resp.json().get("tree", [])
+    return [item["path"] for item in items if item["type"] == "blob"]
 
 
-def generate_description(repo_name, language, commits):
+def generate_description(repo_name, language, file_paths):
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    commits_text = "\n".join(f"- {c}" for c in commits) if commits else "No recent commits."
+    tree_text = "\n".join(file_paths[:60]) if file_paths else "No files found."
     prompt = f"""You are writing a short project description for a GitHub profile README.
 
 Repo: {repo_name}
 Primary language: {language or "unknown"}
-Recent commits:
-{commits_text}
+File tree:
+{tree_text}
 
-Write ONE concise sentence (max 12 words) describing what this project does based on the repo name and commits. Be specific, not generic. No quotes."""
+Write ONE concise sentence (max 12 words) describing what this project does based on the repo name and file structure. Be specific, not generic. No quotes."""
 
     message = client.messages.create(
         model="claude-haiku-4-5-20251001",
@@ -60,15 +61,12 @@ def build_table(repos):
         language = repo["language"] or "—"
         private = repo["private"]
         url = repo["html_url"]
+        branch = repo.get("default_branch", "main")
 
-        commits = get_recent_commits(name)
-        description = generate_description(name, language, commits)
+        file_paths = get_file_tree(name, branch)
+        description = generate_description(name, language, file_paths)
 
-        if private:
-            project_cell = f"🔒 {name}"
-        else:
-            project_cell = f"[{name}]({url})"
-
+        project_cell = f"🔒 {name}" if private else f"[{name}]({url})"
         rows.append(f"| {project_cell} | {description} | {language} |")
 
     return "\n".join(rows)
