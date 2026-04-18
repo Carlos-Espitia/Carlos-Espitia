@@ -38,12 +38,14 @@
 
 ### Recent Projects
 
+<!-- PROJECTS:START -->
 | Project | Description | Stack |
 |---|---|---|
 | 🔒 handshake-bot | Automation bot | Python |
 | 🔒 financial-backtester-v2 | Backtesting tool for quantitative trading analysis | Python |
 | [sports-analytics](https://github.com/Carlos-Espitia/sports-analytics) | Sports data analytics | PHP |
 | [openclaw](https://github.com/Carlos-Espitia/openclaw) | Personal AI assistant — any OS, any platform | TypeScript |
+<!-- PROJECTS:END -->
 
 ---
 

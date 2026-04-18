@@ -1,0 +1,52 @@
+name: Update Recent Projects
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # every 5 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests anthropic
+
+      - name: Check for recent activity
+        id: activity
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          PUSHED_AT=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/users/Carlos-Espitia/repos?sort=pushed&per_page=1" \
+            | python3 -c "import sys,json; print(json.load(sys.stdin)[0]['pushed_at'])")
+          LAST_RUN=$(git log -1 --format=%cI -- README.md 2>/dev/null || echo "1970-01-01T00:00:00Z")
+          echo "pushed_at=$PUSHED_AT"
+          echo "last_run=$LAST_RUN"
+          if [[ "$PUSHED_AT" > "$LAST_RUN" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run update script
+        if: steps.activity.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/update_projects.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet && echo "No changes" || (git add README.md && git commit -m "chore: update recent projects" && git push)
