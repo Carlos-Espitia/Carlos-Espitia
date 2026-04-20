@@ -2,7 +2,7 @@ import os
 import re
 import requests
 import anthropic
-from datetime import datetime, timezone
+from datetime import datetime
 
 GH_TOKEN = os.environ["GH_TOKEN"]
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
@@ -17,16 +17,33 @@ gh_headers = {
 
 
 def get_recent_repos():
-    url = "https://api.github.com/user/repos"
-    params = {"sort": "pushed", "per_page": 20, "affiliation": "owner"}
-    resp = requests.get(url, headers=gh_headers, params=params)
+    url = f"https://api.github.com/users/{USERNAME}/events"
+    resp = requests.get(url, headers=gh_headers, params={"per_page": 100})
     resp.raise_for_status()
-    repos = [r for r in resp.json() if r["name"] != USERNAME]
-    return repos[:NUM_PROJECTS]
+
+    seen = {}
+    for event in resp.json():
+        if event["type"] != "PushEvent":
+            continue
+        repo = event["repo"]
+        name = repo["name"]  # format: "owner/repo"
+        if name == f"{USERNAME}/{USERNAME}":
+            continue
+        if name not in seen:
+            seen[name] = event["created_at"]
+
+    repo_names = list(seen.keys())[:NUM_PROJECTS]
+
+    repos = []
+    for full_name in repo_names:
+        r = requests.get(f"https://api.github.com/repos/{full_name}", headers=gh_headers)
+        if r.status_code == 200:
+            repos.append(r.json())
+    return repos
 
 
-def get_file_tree(repo_name, default_branch):
-    url = f"https://api.github.com/repos/{USERNAME}/{repo_name}/git/trees/{default_branch}"
+def get_file_tree(full_name, default_branch):
+    url = f"https://api.github.com/repos/{full_name}/git/trees/{default_branch}"
     resp = requests.get(url, headers=gh_headers, params={"recursive": "1"})
     if resp.status_code != 200:
         return []
@@ -34,9 +51,9 @@ def get_file_tree(repo_name, default_branch):
     return [item["path"] for item in items if item["type"] == "blob"]
 
 
-def get_recent_commits(repo_name, count=3):
-    url = f"https://api.github.com/repos/{USERNAME}/{repo_name}/commits"
-    resp = requests.get(url, headers=gh_headers, params={"per_page": count})
+def get_recent_commits(full_name, count=3):
+    url = f"https://api.github.com/repos/{full_name}/commits"
+    resp = requests.get(url, headers=gh_headers, params={"per_page": count, "author": USERNAME})
     if resp.status_code != 200:
         return []
     commits = []
@@ -48,19 +65,7 @@ def get_recent_commits(repo_name, count=3):
     return commits
 
 
-def relative_date(dt):
-    now = datetime.now(timezone.utc)
-    delta = now - dt
-    days = delta.days
-    if days == 0:
-        hours = delta.seconds // 3600
-        return f"{hours}h ago" if hours > 0 else "just now"
-    if days == 1:
-        return "yesterday"
-    if days < 7:
-        return f"{days}d ago"
-    if days < 30:
-        return f"{days // 7}w ago"
+def format_date(dt):
     return dt.strftime("%b %d, %Y")
 
 
@@ -93,15 +98,16 @@ def build_section(repos):
         url = repo["html_url"]
         branch = repo.get("default_branch", "main")
 
-        file_paths = get_file_tree(name, branch)
+        full_name = repo["full_name"]
+        file_paths = get_file_tree(full_name, branch)
         description = generate_description(name, language, file_paths)
-        commits = get_recent_commits(name)
+        commits = get_recent_commits(full_name)
 
         project_cell = f"🔒 {name}" if private else f"[{name}]({url})"
 
         if commits:
             commits_cell = "<br>".join(
-                f"`{c['message'][:50]}` · {relative_date(c['date'])}"
+                f"`{c['message'][:50]}` · {format_date(c['date'])}"
                 for c in commits
             )
         else:
