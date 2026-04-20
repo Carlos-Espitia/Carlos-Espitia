@@ -26,30 +26,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          # Exclude the profile repo so its own commits don't trigger an infinite loop
-          PUSHED_AT=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
-            "https://api.github.com/users/Carlos-Espitia/repos?sort=pushed&per_page=10" \
-            | python3 -c "
-import sys, json
-repos = [r for r in json.load(sys.stdin) if r['name'] != 'Carlos-Espitia']
-print(repos[0]['pushed_at'] if repos else '1970-01-01T00:00:00Z')
-")
-          # Normalize last run to UTC for reliable comparison
           LAST_RUN=$(git log -1 --format=%cI -- README.md 2>/dev/null || echo "1970-01-01T00:00:00Z")
-          LAST_RUN_UTC=$(python3 -c "
-from datetime import datetime, timezone
-import sys
-s = '$LAST_RUN'
-dt = datetime.fromisoformat(s)
-print(dt.astimezone(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))
-")
-          echo "pushed_at=$PUSHED_AT"
-          echo "last_run_utc=$LAST_RUN_UTC"
-          if [[ "$PUSHED_AT" > "$LAST_RUN_UTC" ]]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "changed=false" >> $GITHUB_OUTPUT
-          fi
+          CHANGED=$(python scripts/check_activity.py "$LAST_RUN")
+          echo "changed=$CHANGED" >> $GITHUB_OUTPUT
 
       - name: Run update script
         if: steps.activity.outputs.changed == 'true'
