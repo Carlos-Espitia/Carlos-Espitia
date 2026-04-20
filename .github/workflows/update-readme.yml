@@ -26,9 +26,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          LAST_RUN=$(git log -1 --format=%cI -- README.md 2>/dev/null || echo "1970-01-01T00:00:00Z")
-          CHANGED=$(python scripts/check_activity.py "$LAST_RUN")
-          echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            LAST_RUN=$(git log -1 --format=%cI -- README.md 2>/dev/null || echo "1970-01-01T00:00:00Z")
+            CHANGED=$(python scripts/check_activity.py "$LAST_RUN")
+            echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+          fi
 
       - name: Run update script
         if: steps.activity.outputs.changed == 'true'
