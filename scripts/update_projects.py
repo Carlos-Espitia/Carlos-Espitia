@@ -103,7 +103,7 @@ def build_section(repos):
         description = generate_description(name, language, file_paths)
         commits = get_recent_commits(full_name)
 
-        project_cell = f"🔒 {name}" if private else f"[{name}]({url})"
+        project_cell = f"🔒 [{name}]({url})" if private else f"[{name}]({url})"
 
         if commits:
             commits_cell = "<br>".join(
