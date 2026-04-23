@@ -46,12 +46,11 @@
 ### Recent Projects
 
 <!-- PROJECTS:START -->
-| Project | Description | Stack |
-|---|---|---|
-| 🔒 handshake-bot | Automation bot | Python |
-| 🔒 financial-backtester-v2 | Backtesting tool for quantitative trading analysis | Python |
-| [sports-analytics](https://github.com/Carlos-Espitia/sports-analytics) | Sports data analytics | PHP |
-| [openclaw](https://github.com/Carlos-Espitia/openclaw) | Personal AI assistant — any OS, any platform | TypeScript |
+| Project | Stack | Description | Recent Commits |
+|---|---|---|---|
+| 🔒 [handshake-bot](https://github.com/Carlos-Espitia/handshake-bot) | Python | Automated job application bot for multiple hiring platforms with AI-generated cover letters. | `Added chrome cdp mcp server but still need to set ` · Apr 22, 2026<br>`Added some claude stuff like page analyzer skill a` · Apr 21, 2026<br>`Worked on wellfound bot and UI, wellfound bot has ` · Apr 20, 2026 |
+| 🔒 [financial-backtester-v2](https://github.com/Carlos-Espitia/financial-backtester-v2) | Python | Framework for backtesting and validating quantitative trading theories. | `Did more testing with news wicks` · Apr 16, 2026<br>`Added imbalances and ran tests on them` · Apr 15, 2026<br>`Made updates to findings section` · Apr 15, 2026 |
+| [sports-analytics](https://github.com/Carlos-Espitia/sports-analytics) | PHP | Syncs and displays live soccer fixtures and league standings data. | `removed some seeders` · Apr 03, 2026<br>`Add API-Football integration and sync command for ` · Apr 03, 2026<br>`Added standings and fixtures pages. Also added nav` · Apr 02, 2026 |
 <!-- PROJECTS:END -->
 
 ---
