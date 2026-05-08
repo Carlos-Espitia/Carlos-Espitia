@@ -48,9 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python | Automates job applications across multiple career platforms using AI. | `updated wellfound bot and react frontend` · Apr 29, 2026<br>`Added disclaimer usage and transitioned to using r` · Apr 24, 2026<br>`changed name of project and made tweaks` · Apr 23, 2026 |
-| 🔒 [financial-backtester-v2](https://github.com/Carlos-Espitia/financial-backtester-v2) | Python | A Python backtester validating trading theories against historical market data. | `Did more testing with news wicks` · Apr 16, 2026<br>`Added imbalances and ran tests on them` · Apr 15, 2026<br>`Made updates to findings section` · Apr 15, 2026 |
-| [sports-analytics](https://github.com/Carlos-Espitia/sports-analytics) | PHP | A Laravel application for syncing and displaying soccer league fixtures and standings data. | `removed some seeders` · Apr 03, 2026<br>`Add API-Football integration and sync command for ` · Apr 03, 2026<br>`Added standings and fixtures pages. Also added nav` · Apr 02, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python | Automates job applications across multiple platforms with AI-generated cover letters. | `Added wellfound applying through API feature, work` · May 08, 2026<br>`updated wellfound bot and react frontend` · Apr 29, 2026<br>`Added disclaimer usage and transitioned to using r` · Apr 24, 2026 |
+| 🔒 [financial-backtester-v2](https://github.com/Carlos-Espitia/financial-backtester-v2) | Python | Backtests trading theories against historical market data with visualization. | `Did more testing with news wicks` · Apr 16, 2026<br>`Added imbalances and ran tests on them` · Apr 15, 2026<br>`Made updates to findings section` · Apr 15, 2026 |
 <!-- PROJECTS:END -->
 
 ---
