@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python | Automates job applications across multiple career platforms using AI. | `Was middle of adding sign in guidance feature for ` · May 08, 2026<br>`Added wellfound applying through API feature, work` · May 08, 2026<br>`updated wellfound bot and react frontend` · Apr 29, 2026 |
-| 🔒 [financial-backtester-v2](https://github.com/Carlos-Espitia/financial-backtester-v2) | Python | Python backtester for validating quantitative trading theories with visual analysis. | `Did more testing with news wicks` · Apr 16, 2026<br>`Added imbalances and ran tests on them` · Apr 15, 2026<br>`Made updates to findings section` · Apr 15, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python | Automates job applications across multiple job platforms using AI. | `Reorganized job platform code structure, added log` · May 09, 2026<br>`Was middle of adding sign in guidance feature for ` · May 08, 2026<br>`Added wellfound applying through API feature, work` · May 08, 2026 |
+| 🔒 [financial-backtester-v2](https://github.com/Carlos-Espitia/financial-backtester-v2) | Python | Backtests trading theories against historical market data with visual analysis. | `Did more testing with news wicks` · Apr 16, 2026<br>`Added imbalances and ran tests on them` · Apr 15, 2026<br>`Made updates to findings section` · Apr 15, 2026 |
 <!-- PROJECTS:END -->
 
 ---
