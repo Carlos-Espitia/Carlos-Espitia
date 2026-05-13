@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [financial-backtester-v2](https://github.com/Carlos-Espitia/financial-backtester-v2) | Python | Backtests trading theories against historical market data with visualization. | `Added new theories` · May 11, 2026<br>`Did more testing with news wicks` · Apr 16, 2026<br>`Added imbalances and ran tests on them` · Apr 15, 2026 |
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python | Automates job applications across multiple platforms using AI-generated cover letters. | `Fixed bugs with login/logout feature` · May 10, 2026<br>`Reorganized job platform code structure, added log` · May 09, 2026<br>`Was middle of adding sign in guidance feature for ` · May 08, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python | Automates job applications across multiple platforms with AI-generated cover letters. | `Added question bank AI feature, it auto answers jo` · May 13, 2026<br>`Fixed bugs with login/logout feature` · May 10, 2026<br>`Reorganized job platform code structure, added log` · May 09, 2026 |
+| 🔒 [financial-backtester-v2](https://github.com/Carlos-Espitia/financial-backtester-v2) | Python | Backtests trading theories against historical market data with visual analysis. | `Added new theories` · May 11, 2026<br>`Did more testing with news wicks` · Apr 16, 2026<br>`Added imbalances and ran tests on them` · Apr 15, 2026 |
 <!-- PROJECTS:END -->
 
 ---
