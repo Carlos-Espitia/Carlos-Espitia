@@ -23,12 +23,20 @@ def get_recent_repos():
 
     seen = {}
     for event in resp.json():
-        if event["type"] != "PushEvent":
+        etype = event["type"]
+        is_push = etype == "PushEvent"
+        is_create = (
+            etype == "CreateEvent"
+            and event.get("payload", {}).get("ref_type") == "repository"
+        )
+        if not (is_push or is_create):
             continue
         repo = event["repo"]
         name = repo["name"]  # format: "owner/repo"
         if name == f"{USERNAME}/{USERNAME}":
             continue
+        # Events come newest-first, so the first time we see a repo is its most
+        # recent activity (either a push or the repo's creation).
         if name not in seen:
             seen[name] = event["created_at"]
 
@@ -51,6 +59,17 @@ def get_file_tree(full_name, default_branch):
     return [item["path"] for item in items if item["type"] == "blob"]
 
 
+def get_languages(full_name):
+    url = f"https://api.github.com/repos/{full_name}/languages"
+    resp = requests.get(url, headers=gh_headers)
+    if resp.status_code != 200:
+        return []
+    # Returns {"Python": bytes, "HTML": bytes, ...}; sort by bytes descending
+    # so the dominant language comes first.
+    langs = resp.json()
+    return sorted(langs, key=langs.get, reverse=True)
+
+
 def get_recent_commits(full_name, count=3):
     url = f"https://api.github.com/repos/{full_name}/commits"
     resp = requests.get(url, headers=gh_headers, params={"per_page": count, "author": USERNAME})
@@ -69,17 +88,17 @@ def format_date(dt):
     return dt.strftime("%b %d, %Y")
 
 
-def generate_description(repo_name, language, file_paths):
+def generate_description(repo_name, stack, file_paths):
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     tree_text = "\n".join(file_paths[:60]) if file_paths else "No files found."
     prompt = f"""You are writing a short project description for a GitHub profile README.
 
-Repo: {repo_name}
-Primary language: {language or "unknown"}
-File tree:
-{tree_text}
+    Repo: {repo_name}
+    Languages used: {stack or "unknown"}
+    File tree:
+    {tree_text}
 
-Write ONE concise sentence (max 12 words) describing what this project does based on the repo name and file structure. Be specific, not generic. No quotes."""
+    Write ONE concise sentence describing what this project does based on the repo name and file structure. Be specific, not generic. No quotes."""
 
     message = client.messages.create(
         model="claude-haiku-4-5-20251001",
@@ -93,14 +112,16 @@ def build_section(repos):
     lines = ["| Project | Stack | Description | Recent Commits |", "|---|---|---|---|"]
     for repo in repos:
         name = repo["name"]
-        language = repo["language"] or "—"
         private = repo["private"]
         url = repo["html_url"]
         branch = repo.get("default_branch", "main")
 
         full_name = repo["full_name"]
+        languages = get_languages(full_name)
+        stack = ", ".join(languages) if languages else (repo["language"] or "—")
+
         file_paths = get_file_tree(full_name, branch)
-        description = generate_description(name, language, file_paths)
+        description = generate_description(name, stack, file_paths)
         commits = get_recent_commits(full_name)
 
         project_cell = f"🔒 [{name}]({url})" if private else f"[{name}]({url})"
@@ -113,7 +134,7 @@ def build_section(repos):
         else:
             commits_cell = "—"
 
-        lines.append(f"| {project_cell} | {language} | {description} | {commits_cell} |")
+        lines.append(f"| {project_cell} | {stack} | {description} | {commits_cell} |")
 
     return "\n".join(lines)
 
