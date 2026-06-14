@@ -46,12 +46,10 @@
 ### Recent Projects
 
 <!-- PROJECTS:START -->
-| Project | Description | Stack |
-|---|---|---|
-| 🔒 handshake-bot | Automation bot | Python |
-| 🔒 financial-backtester-v2 | Backtesting tool for quantitative trading analysis | Python |
-| [sports-analytics](https://github.com/Carlos-Espitia/sports-analytics) | Sports data analytics | PHP |
-| [openclaw](https://github.com/Carlos-Espitia/openclaw) | Personal AI assistant — any OS, any platform | TypeScript |
+| Project | Stack | Description | Recent Commits |
+|---|---|---|---|
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, HTML, Batchfile | Jobomatic is an automated job application bot that applies to jobs on multiple platforms (Handshake, Indeed, Wellfound) using AI-generated cover letters and profile matching. | `Removed live logs in dashboard and added manual re` · Jun 02, 2026<br>`fixed small job title bug since handshake updated ` · Jun 02, 2026<br>`Fixed some bugs` · May 26, 2026 |
+| 🔒 [financial-backtester-v2](https://github.com/Carlos-Espitia/financial-backtester-v2) | Python, TypeScript, CSS, HTML | A Python-based backtesting framework that evaluates quantitative trading theories across multiple market microstructure patterns (liquidity voids, volume profiles, delta analysis) using various optimization and walk-forward validation methods. | `Added footprint chart` · May 25, 2026<br>`More testing with volume profile, added sobol opti` · May 24, 2026<br>`Researched daily volume profile ledges, added ML f` · May 21, 2026 |
 <!-- PROJECTS:END -->
 
 ---
