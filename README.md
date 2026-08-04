@@ -48,9 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, CMake, Batchfile | A C++ mod client for Minecraft Bedrock Edition that injects hooks into game systems to enable custom modules for automation, pathfinding, rendering, and inventory management. | `Added way more stuff` · Jul 28, 2026<br>`Fixed ui dump issue` · Jul 24, 2026<br>`Too many updates` · Jul 24, 2026 |
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, HTML, Batchfile | Jobomatic is a desktop application that automates job applications across multiple platforms using AI, featuring analytics dashboards and resume management built with Electron, Python, and TypeScript. | `@` · Jul 01, 2026<br>`Added web app` · Jul 01, 2026<br>`Added greenhouse, updated stuff, handshake job pos` · Jun 30, 2026 |
-| [QA-voice-agent-analyzer](https://github.com/Carlos-Espitia/QA-voice-agent-analyzer) | Python | A Python-based system that records and analyzes voice conversations with AI agents, transcribing audio and evaluating QA scenarios through simulated personas and call interactions. | `Fixed talking over bug for video` · Jun 29, 2026<br>`Analyzed 10 calls and created bug reports` · Jun 24, 2026<br>`Add architecture doc, bug report from real calls, ` · Jun 24, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, HTML, Batchfile | Jobomatic is a desktop application that automates job application submissions across multiple platforms using AI, with a TypeScript/Electron frontend and Python backend orchestration. | `Updated user profile section and fixed updated htm` · Aug 04, 2026<br>`@` · Jul 01, 2026<br>`Added web app` · Jul 01, 2026 |
+| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, CMake, Batchfile | A C++ injection-based mod client for Minecraft Bedrock Edition that hooks game systems to enable automation, pathfinding, and UI manipulation features. | `Added way more stuff` · Jul 28, 2026<br>`Fixed ui dump issue` · Jul 24, 2026<br>`Too many updates` · Jul 24, 2026 |
 <!-- PROJECTS:END -->
 
 ---
