@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, HTML, Batchfile | Jobomatic is a desktop application that automates job application submissions across multiple platforms using AI, with a TypeScript/Electron frontend and Python backend orchestration. | `Updated user profile section and fixed updated htm` · Aug 04, 2026<br>`@` · Jul 01, 2026<br>`Added web app` · Jul 01, 2026 |
-| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, CMake, Batchfile | A C++ injection-based mod client for Minecraft Bedrock Edition that hooks game systems to enable automation, pathfinding, and UI manipulation features. | `Added way more stuff` · Jul 28, 2026<br>`Fixed ui dump issue` · Jul 24, 2026<br>`Too many updates` · Jul 24, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, HTML, Batchfile | Jobomatic is a desktop application that automates job application submissions across multiple platforms using AI, with a comprehensive dashboard for tracking applications and analytics. | `Updated user profile section and fixed updated htm` · Aug 04, 2026<br>`@` · Jul 01, 2026<br>`Added web app` · Jul 01, 2026 |
+| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, CMake, Batchfile | MCBE-Client is a C++ mod injector for Minecraft Bedrock Edition that hooks into game systems to enable custom modules for automation, rendering, input handling, and gameplay enhancement. | `Added way more stuff` · Jul 28, 2026<br>`Fixed ui dump issue` · Jul 24, 2026<br>`Too many updates` · Jul 24, 2026 |
 <!-- PROJECTS:END -->
 
 ---
