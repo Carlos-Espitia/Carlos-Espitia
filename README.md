@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, HTML, Batchfile | Jobomatic is a desktop application that automates job application submissions across multiple platforms using AI, with a built-in dashboard to track applications, follow-ups, and employer analytics. | `Updated user profile section and fixed updated htm` · Aug 04, 2026<br>`@` · Jul 01, 2026<br>`Added web app` · Jul 01, 2026 |
-| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, CMake, PowerShell, Batchfile | A reverse-engineered client mod framework for Minecraft Bedrock Edition that hooks game internals to implement custom gameplay modules like automation, UI manipulation, and packet interception. | `Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026<br>`Fixed ui dump issue` · Jul 24, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, HTML, Batchfile | Jobomatic is a desktop application that automates job applications across multiple platforms using an AI-powered bot with a comprehensive dashboard for tracking applications, analytics, and job search metrics. | `Updated user profile section and fixed updated htm` · Aug 04, 2026<br>`@` · Jul 01, 2026<br>`Added web app` · Jul 01, 2026 |
+| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, CMake, PowerShell, Batchfile | A reverse-engineered mod loader and hook framework for Minecraft Bedrock Edition that intercepts game events and memory to enable client-side modifications like automated farming, inventory management, and rendering enhancements. | `Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026<br>`Fixed ui dump issue` · Jul 24, 2026 |
 <!-- PROJECTS:END -->
 
 ---
