@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, JavaScript, HTML, Dockerfile | Jobomatic is a desktop application that automates job application submissions by intelligently filling out and submitting online job forms. | `Merge pull request #2 from Carlos-Espitia/refactor` · Sep 06, 2026<br>`Docs: plain-language status, and setup that covers` · Sep 06, 2026<br>`Merge pull request #1 from Carlos-Espitia/refactor` · Sep 06, 2026 |
-| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, CMake, PowerShell, Batchfile | A reverse-engineered mod loader and hook framework for Minecraft Bedrock Edition that enables custom gameplay modules through memory manipulation and event-driven architecture. | `Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026<br>`Fixed ui dump issue` · Jul 24, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, JavaScript, HTML, Dockerfile | Jobomatic is a desktop application that automates job application submissions across multiple platforms using AI-powered bot technology with a TypeScript/Electron frontend and Python backend. | `Sign up by paying, and count the day in UTC` · Sep 07, 2026<br>`Write down how to deploy, and stop keeping the key` · Sep 07, 2026<br>`Merge pull request #3 from Carlos-Espitia/refactor` · Sep 06, 2026 |
+| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, CMake, PowerShell, Batchfile | A C++ mod framework for Minecraft Bedrock Edition that hooks into game memory to enable custom modules like auto-farming, inventory management, and litematica integration through reverse-engineered game structures. | `Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026<br>`Fixed ui dump issue` · Jul 24, 2026 |
 <!-- PROJECTS:END -->
 
 ---
