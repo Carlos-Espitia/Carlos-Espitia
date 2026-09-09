@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | A reverse-engineered Minecraft Bedrock Edition client mod framework that hooks game internals to implement features like automation, rendering overlays, and inventory management through memory manipulation and API interception. | `Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026 |
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, JavaScript, HTML, Dockerfile | Jobomatic is a desktop application that automates job application submissions by orchestrating browser interactions and managing application workflows through a Python backend and Electron UI. | `Sign up by paying, and count the day in UTC` · Sep 07, 2026<br>`Write down how to deploy, and stop keeping the key` · Sep 07, 2026<br>`Merge pull request #3 from Carlos-Espitia/refactor` · Sep 06, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, JavaScript, HTML, Dockerfile | Jobomatic is a desktop application that automates job application submissions across multiple platforms using an AI-powered bot with a TypeScript/Electron UI and Python backend. | `Fixed more bugs` · Sep 09, 2026<br>`Fixed some bugs with greenhouse bot` · Sep 09, 2026<br>`Warn before the credit runs out, and say which wal` · Sep 09, 2026 |
+| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | MCBE-Client is a reverse-engineered client mod for Minecraft Bedrock Edition that hooks game functions to implement features like automated farming, building assistance, and UI enhancements through memory manipulation and function interception. | `Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026 |
 <!-- PROJECTS:END -->
 
 ---
