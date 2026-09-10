@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, JavaScript, Jinja, HTML, Dockerfile | Jobomatic is a desktop application that automates job applications using AI, with a Python backend for bot logic and a TypeScript/Electron frontend for user management and analytics. | `small updates` · Sep 10, 2026<br>`Added a build release command` · Sep 10, 2026<br>`Cleaned up server code and worked on desktop UI` · Sep 10, 2026 |
-| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | MCBE-Client is a reverse-engineered mod framework for Minecraft Bedrock Edition that uses memory manipulation and API hooking to implement client-side features like auto-farming, building assistance, and UI enhancements. | `Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, JavaScript, Jinja, HTML, Dockerfile | Jobomatic is a desktop application that automates job application workflows using AI, built with Electron and Python backend integration. | `Release v1.0.1` · Sep 10, 2026<br>`fix 2` · Sep 10, 2026<br>`fix` · Sep 10, 2026 |
+| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | MCBE-Client is a reverse-engineered modification framework for Minecraft Bedrock Edition that hooks game internals to implement client-side features like automation modules, UI enhancements, and gameplay mechanics. | `Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026 |
 <!-- PROJECTS:END -->
 
 ---
