@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, JavaScript, HTML, Dockerfile | Jobomatic is a desktop application that automates job application submissions across multiple platforms using an AI-powered bot with a TypeScript/Electron UI and Python backend. | `Fixed more bugs` · Sep 09, 2026<br>`Fixed some bugs with greenhouse bot` · Sep 09, 2026<br>`Warn before the credit runs out, and say which wal` · Sep 09, 2026 |
-| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | MCBE-Client is a reverse-engineered client mod for Minecraft Bedrock Edition that hooks game functions to implement features like automated farming, building assistance, and UI enhancements through memory manipulation and function interception. | `Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, JavaScript, HTML, Dockerfile | Jobomatic is a desktop application that automates job application submissions by orchestrating browser interactions and managing application data through an Electron UI paired with a Python backend. | `Worked on subscription and payment process` · Sep 10, 2026<br>`Show what each AI feature actually costs` · Sep 09, 2026<br>`Drop the applications list and bot control from th` · Sep 09, 2026 |
+| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | MCBE-Client is a reverse-engineered mod framework for Minecraft Bedrock Edition that uses memory manipulation and API hooking to implement gameplay enhancements like auto-farming, inventory management, and building assistance features. | `Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026 |
 <!-- PROJECTS:END -->
 
 ---
