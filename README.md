@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, Jinja, JavaScript, HTML, Dockerfile | Jobomatic is a desktop application that automates job application submissions by orchestrating browser interactions and managing application data through an Electron UI paired with a Python backend. | `Worked on subscription and payment process` · Sep 10, 2026<br>`Show what each AI feature actually costs` · Sep 09, 2026<br>`Drop the applications list and bot control from th` · Sep 09, 2026 |
-| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | MCBE-Client is a reverse-engineered mod framework for Minecraft Bedrock Edition that uses memory manipulation and API hooking to implement gameplay enhancements like auto-farming, inventory management, and building assistance features. | `Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, JavaScript, Jinja, HTML, Dockerfile | Jobomatic is a desktop application that automates job applications using AI, with a Python backend for bot logic and a TypeScript/Electron frontend for user management and analytics. | `small updates` · Sep 10, 2026<br>`Added a build release command` · Sep 10, 2026<br>`Cleaned up server code and worked on desktop UI` · Sep 10, 2026 |
+| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | MCBE-Client is a reverse-engineered mod framework for Minecraft Bedrock Edition that uses memory manipulation and API hooking to implement client-side features like auto-farming, building assistance, and UI enhancements. | `Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026 |
 <!-- PROJECTS:END -->
 
 ---
