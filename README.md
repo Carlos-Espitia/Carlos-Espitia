@@ -48,8 +48,8 @@
 <!-- PROJECTS:START -->
 | Project | Stack | Description | Recent Commits |
 |---|---|---|---|
-| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, JavaScript, Jinja, HTML, NSIS, Dockerfile | Jobomatic is a desktop application that automates job application workflows using AI, combining an Electron frontend with a Python backend to streamline resume handling, form filling, and application submission. | `Orgainzed files and cleaned up code` · Sep 17, 2026<br>`Reorganized files2` · Sep 17, 2026<br>`Reorganized files` · Sep 17, 2026 |
-| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | A reverse-engineered client mod framework for Minecraft Bedrock Edition that hooks game internals to enable custom modules for gameplay automation, building assistance, and UI manipulation. | `Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026<br>`Added way more stuff` · Jul 28, 2026 |
+| 🔒 [MCBE-Client](https://github.com/Carlos-Espitia/MCBE-Client) | C++, Python, PowerShell, CMake, Batchfile | A reverse-engineered Minecraft Bedrock Edition client mod framework that uses memory scanning and offset injection to implement gameplay automation features like auto-farming, building assistance, and combat enhancements. | `fixed client for new update` · Sep 18, 2026<br>`Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated client to late` · Aug 08, 2026 |
+| 🔒 [jobomatic](https://github.com/Carlos-Espitia/jobomatic) | Python, TypeScript, CSS, JavaScript, Jinja, HTML, NSIS, Dockerfile | Jobomatic is a desktop application that automates job application workflows using AI, with a Python backend for bot automation and a TypeScript/Electron frontend for cross-platform UI. | `Orgainzed files and cleaned up code` · Sep 17, 2026<br>`Reorganized files2` · Sep 17, 2026<br>`Reorganized files` · Sep 17, 2026 |
 <!-- PROJECTS:END -->
 
 ---
