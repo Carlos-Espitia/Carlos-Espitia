@@ -1,7 +1,7 @@
 <h1 align="center">Hey, I'm Carlos 👋</h1>
 
 <p align="center">
-  CS Student @ UNC Charlotte &nbsp;·&nbsp; QA & Automation
+  CS Junior @ UNC Charlotte &nbsp;·&nbsp; QA, Automation & AI Engineering
 </p>
 
 <p align="center">
@@ -9,6 +9,32 @@
   &nbsp;
   <a href="mailto:Cehernandez006@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white"/></a>
 </p>
+
+---
+
+### About
+
+I'm a Computer Science junior at UNC Charlotte (B.S., May 2028), currently a **Quality Assurance Intern at MarrLabs**, where I test and debug production AI voice agents — building log-aggregation tooling across AWS CloudWatch and Grafana, and automating end-to-end test suites for 7 distinct agents.
+
+Outside of that I build at the intersection of **AI engineering and quantitative research**: RAG pipelines with grounding verification, LLM-driven voice QA harnesses, and a tick-level backtesting engine with walk-forward validation.
+
+**Currently looking for SWE / AI engineering internships.**
+
+---
+
+### Featured Projects
+
+**🎙️ [QA Voice Agent Analyzer](https://github.com/Carlos-Espitia/QA-voice-agent-analyzer)** — `Python` `FastAPI` `Twilio` `Deepgram` `Claude API`  
+A real-time voice QA harness that autonomously calls a production voice agent and holds natural multi-turn conversations with it. Claude generates caller responses dynamically from conversation history and a scenario goal instead of a fixed script, so it adapts to edge cases like jailbreak attempts and contradictory information. Persona and scenario are decoupled into a library of 11+ scenarios and 3 voices that mix and match freely.
+
+**📊 [SEC Financial Insights](https://github.com/Carlos-Espitia/SEC-financial-insights)** — `Python` `Claude API` `ChromaDB` `LangChain` `Streamlit`  
+Hybrid-retrieval RAG (dense + BM25 + cross-encoder reranking) over 1,000+ SEC filings, with an LLM grounding-verification stage — **86% accuracy at a 0% hallucination rate**. Ships an automated LLM-graded eval suite and a one-click EDGAR/XBRL ingestion pipeline that indexes any public company on demand.
+
+**🤖 [Jobomatic](https://github.com/Carlos-Espitia/jobomatic-releases)** — `Python` `Playwright` `Electron` `React` `Claude API`  
+A modular automation engine that applies to jobs end-to-end across 4 ATS platforms behind a shared bot interface, driving real authenticated sessions over the Chrome DevTools Protocol. Generates job-tailored cover letters and per-posting resume rewrites rendered to PDF via LaTeX, and answers screening questions through a cache → LLM → manual-review pipeline. Desktop control panel built in Electron + React. *(Source private; releases and changelog are public.)*
+
+**📈 Quant Research Tool** 🔒 — `Python` `FastAPI` `TypeScript` `React` `Electron` `DuckDB`  
+A full-stack desktop research platform with a plugin architecture supporting 18+ independently testable trading strategies. Processes millions of raw tick records into custom OHLCV and order-flow bars across 9 timeframes, then validates strategies with walk-forward and out-of-sample engines to catch overfitting. Parallelized Bayesian + quasi-random optimization layer with hardware-aware multiprocessing, streaming live progress over SSE for 100+ minute runs.
 
 ---
 
@@ -20,18 +46,18 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white)
-![HTML/CSS](https://img.shields.io/badge/HTML%2FCSS-E34F26?style=flat&logo=html5&logoColor=white)
 
 **Frameworks & Libraries**  
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat&logo=python&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)
+![Electron](https://img.shields.io/badge/Electron-47848F?style=flat&logo=electron&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat&logo=langchain&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![DuckDB](https://img.shields.io/badge/DuckDB-FFF000?style=flat&logo=duckdb&logoColor=black)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
 
 **Tools & Cloud**  
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazon-aws&logoColor=white)
@@ -39,19 +65,26 @@
 ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat&logo=grafana&logoColor=white)
 ![Sentry](https://img.shields.io/badge/Sentry-362D59?style=flat&logo=sentry&logoColor=white)
 ![Jira](https://img.shields.io/badge/Jira-0052CC?style=flat&logo=jira&logoColor=white)
-![Confluence](https://img.shields.io/badge/Confluence-172B4D?style=flat&logo=confluence&logoColor=white)
+![Twilio](https://img.shields.io/badge/Twilio-F22F46?style=flat&logo=twilio&logoColor=white)
+
+**AI Engineering**  
+RAG & hybrid retrieval · Vector embeddings · LLM evaluation & grounding verification · Hallucination mitigation · Prompt engineering · Multi-turn dialogue systems · Real-time audio streaming (STT/TTS)
+
+**Quantitative Research**  
+Backtesting & walk-forward analysis · Hyperparameter optimization (Bayesian / quasi-random) · Order-flow analysis · Tick-level time-series processing · Parallel computing
 
 ---
 
-### Recent Projects
+### Recent Activity
 
 <!-- PROJECTS:START -->
-| Project | Description | Stack |
-|---|---|---|
-| 🔒 handshake-bot | Automation bot | Python |
-| 🔒 financial-backtester-v2 | Backtesting tool for quantitative trading analysis | Python |
-| [sports-analytics](https://github.com/Carlos-Espitia/sports-analytics) | Sports data analytics | PHP |
-| [openclaw](https://github.com/Carlos-Espitia/openclaw) | Personal AI assistant — any OS, any platform | TypeScript |
+| Project | Stack | Description | Recent Commits |
+|---|---|---|---|
+| 🔒 jobomatic | Python, TypeScript, CSS | Multi-platform job application bot with an Electron control panel and a Playwright automation engine. | `Major updates on design` · Sep 19, 2026<br>`Made some changes to profile` · Sep 18, 2026<br>`Orgainzed files and cleaned up code` · Sep 17, 2026 |
+| 🔒 MCBE-Client | C++, Python, PowerShell | Minecraft Bedrock mod framework using DLL injection, MinHook game hooks, and an ImGui overlay menu. | `fixed client for new update` · Sep 18, 2026<br>`Added more updates` · Sep 08, 2026<br>`Added alot more modules and updated` · Aug 08, 2026 |
+| [jobomatic-releases](https://github.com/Carlos-Espitia/jobomatic-releases) | — | Release binaries and auto-update feed for the Jobomatic desktop app. | `Add README for the release feed` · Sep 04, 2026 |
+| [QA-voice-agent-analyzer](https://github.com/Carlos-Espitia/QA-voice-agent-analyzer) | Python | Real-time voice QA pipeline that places outbound calls and stress-tests production voice agents. | `Fixed talking over bug for video` · Jun 29, 2026<br>`Analyzed 10 calls and created bug re` · Jun 24, 2026<br>`Add architecture doc, bug report fro` · Jun 24, 2026 |
+| [SEC-financial-insights](https://github.com/Carlos-Espitia/SEC-financial-insights) | Python | Hybrid-retrieval RAG dashboard for Q&A and analysis over SEC 10-K/10-Q filings. | `Made small changes` · Jun 16, 2026<br>`upgraded rag performance` · Jun 14, 2026<br>`Initial commit: SEC Financial Insigh` · Jun 05, 2026 |
 <!-- PROJECTS:END -->
 
 ---
@@ -59,7 +92,7 @@
 ### GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Carlos-Espitia&show_icons=true&theme=tokyonight&hide_border=true" height="150"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=Carlos-Espitia&show_icons=true&count_private=true&theme=tokyonight&hide_border=true" height="150"/>
   &nbsp;
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Carlos-Espitia&layout=compact&theme=tokyonight&hide_border=true" height="150"/>
 </p>

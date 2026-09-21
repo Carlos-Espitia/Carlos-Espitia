@@ -124,7 +124,8 @@ def build_section(repos):
         description = generate_description(name, stack, file_paths)
         commits = get_recent_commits(full_name)
 
-        project_cell = f"🔒 [{name}]({url})" if private else f"[{name}]({url})"
+        # Private repos 404 for visitors, so name them without a link.
+        project_cell = f"🔒 {name}" if private else f"[{name}]({url})"
 
         if commits:
             commits_cell = "<br>".join(
