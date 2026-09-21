@@ -1,8 +1,11 @@
 import os
 import re
+import base64
 import requests
 import anthropic
 from datetime import datetime
+
+from badges import badge_row
 
 GH_TOKEN = os.environ["GH_TOKEN"]
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
@@ -10,10 +13,49 @@ USERNAME = "Carlos-Espitia"
 README_PATH = "README.md"
 NUM_PROJECTS = 5
 
+# Hand-picked projects that lead the profile. Descriptions are regenerated from
+# each repo's README, file tree and latest commits on every run, so shipping new
+# work is enough to update this section -- only the list itself is maintained here.
+FEATURED = [
+    {
+        "repo": "QA-voice-agent-analyzer",
+        "title": "QA Voice Agent Analyzer",
+        "emoji": "🎙️",
+        "tech": ["Python", "FastAPI", "Twilio", "Deepgram", "Claude API", "ElevenLabs"],
+    },
+    {
+        "repo": "SEC-financial-insights",
+        "title": "SEC Financial Insights",
+        "emoji": "📊",
+        "tech": ["Python", "Claude API", "ChromaDB", "LangChain", "Streamlit"],
+    },
+    {
+        # Source is private; the public releases repo is what visitors can open.
+        "repo": "jobomatic",
+        "link_repo": "jobomatic-releases",
+        "title": "Jobomatic",
+        "emoji": "🤖",
+        "tech": ["Python", "Playwright", "Electron", "React", "Claude API"],
+    },
+    {
+        "repo": "financial-backtester-v2",
+        "title": "Quant Research Tool",
+        "emoji": "📈",
+        "tech": ["Python", "FastAPI", "TypeScript", "React", "Electron", "DuckDB"],
+    },
+]
+
 gh_headers = {
     "Authorization": f"Bearer {GH_TOKEN}",
     "Accept": "application/vnd.github+json",
 }
+
+client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+
+
+def get_repo(full_name):
+    resp = requests.get(f"https://api.github.com/repos/{full_name}", headers=gh_headers)
+    return resp.json() if resp.status_code == 200 else None
 
 
 def get_recent_repos():
@@ -44,9 +86,9 @@ def get_recent_repos():
 
     repos = []
     for full_name in repo_names:
-        r = requests.get(f"https://api.github.com/repos/{full_name}", headers=gh_headers)
-        if r.status_code == 200:
-            repos.append(r.json())
+        repo = get_repo(full_name)
+        if repo:
+            repos.append(repo)
     return repos
 
 
@@ -57,6 +99,17 @@ def get_file_tree(full_name, default_branch):
         return []
     items = resp.json().get("tree", [])
     return [item["path"] for item in items if item["type"] == "blob"]
+
+
+def get_readme(full_name, limit=4000):
+    resp = requests.get(f"https://api.github.com/repos/{full_name}/readme", headers=gh_headers)
+    if resp.status_code != 200:
+        return ""
+    content = resp.json().get("content", "")
+    try:
+        return base64.b64decode(content).decode("utf-8", errors="replace")[:limit]
+    except Exception:
+        return ""
 
 
 def get_languages(full_name):
@@ -88,8 +141,16 @@ def format_date(dt):
     return dt.strftime("%b %d, %Y")
 
 
+def ask_claude(prompt, max_tokens):
+    message = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=max_tokens,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return message.content[0].text.strip()
+
+
 def generate_description(repo_name, stack, file_paths):
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     tree_text = "\n".join(file_paths[:60]) if file_paths else "No files found."
     prompt = f"""You are writing a short project description for a GitHub profile README.
 
@@ -99,13 +160,60 @@ def generate_description(repo_name, stack, file_paths):
     {tree_text}
 
     Write ONE concise sentence describing what this project does based on the repo name and file structure. Be specific, not generic. No quotes."""
+    return ask_claude(prompt, max_tokens=60)
 
-    message = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=60,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return message.content[0].text.strip()
+
+def generate_featured_blurb(title, tech, readme, file_paths, commits):
+    tree_text = "\n".join(file_paths[:80]) if file_paths else "No files found."
+    commit_text = "\n".join(f"- {c['message']}" for c in commits) or "No commits found."
+    prompt = f"""You are writing the blurb for a featured project on a software engineer's GitHub profile README. This is portfolio copy aimed at recruiters and engineers.
+
+    Project: {title}
+    Stack: {", ".join(tech)}
+
+    The project's README:
+    ---
+    {readme or "No README available."}
+    ---
+
+    File tree:
+    {tree_text}
+
+    Most recent commits:
+    {commit_text}
+
+    Write 2-3 sentences (max 65 words) describing what this project does and what is technically impressive about it. Lead with the substance, not the name. Preserve any concrete numbers from the README (accuracy rates, counts, latency) exactly as stated -- never invent metrics. Plain prose, no markdown, no bullet points, no quotes."""
+    return ask_claude(prompt, max_tokens=220)
+
+
+def build_featured():
+    blocks = []
+    for entry in FEATURED:
+        full_name = f"{USERNAME}/{entry['repo']}"
+        repo = get_repo(full_name)
+        if repo is None:
+            continue
+
+        branch = repo.get("default_branch", "main")
+        readme = get_readme(full_name)
+        file_paths = get_file_tree(full_name, branch)
+        commits = get_recent_commits(full_name)
+        blurb = generate_featured_blurb(entry["title"], entry["tech"], readme, file_paths, commits)
+
+        # A private repo 404s for visitors: link an explicit public mirror if the
+        # entry names one, otherwise show the title unlinked with a lock.
+        link_repo = entry.get("link_repo")
+        if link_repo:
+            link = f"https://github.com/{USERNAME}/{link_repo}"
+            heading = f"**{entry['emoji']} [{entry['title']}]({link})**"
+        elif repo["private"]:
+            heading = f"**{entry['emoji']} {entry['title']}** 🔒"
+        else:
+            heading = f"**{entry['emoji']} [{entry['title']}]({repo['html_url']})**"
+
+        blocks.append(f"{heading}  \n{badge_row(entry['tech'])}  \n{blurb}")
+
+    return "\n\n".join(blocks)
 
 
 def build_section(repos):
@@ -140,25 +248,30 @@ def build_section(repos):
     return "\n".join(lines)
 
 
-def update_readme(section_md):
-    with open(README_PATH, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    new_block = f"<!-- PROJECTS:START -->\n{section_md}\n<!-- PROJECTS:END -->"
-    updated = re.sub(
-        r"<!-- PROJECTS:START -->.*?<!-- PROJECTS:END -->",
-        new_block,
+def replace_block(content, marker, body):
+    return re.sub(
+        rf"<!-- {marker}:START -->.*?<!-- {marker}:END -->",
+        f"<!-- {marker}:START -->\n{body}\n<!-- {marker}:END -->",
         content,
         flags=re.DOTALL,
     )
 
+
+def update_readme(featured_md, section_md):
+    with open(README_PATH, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    content = replace_block(content, "FEATURED", featured_md)
+    content = replace_block(content, "PROJECTS", section_md)
+
     with open(README_PATH, "w", encoding="utf-8") as f:
-        f.write(updated)
+        f.write(content)
 
     print("README updated.")
 
 
 if __name__ == "__main__":
+    featured = build_featured()
     repos = get_recent_repos()
     section = build_section(repos)
-    update_readme(section)
+    update_readme(featured, section)
