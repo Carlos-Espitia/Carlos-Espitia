@@ -69,7 +69,8 @@ def get_recent_repos():
         is_push = etype == "PushEvent"
         is_create = (
             etype == "CreateEvent"
-            and event.get("payload", {}).get("ref_type") == "repository"
+            # A brand-new repo's first push arrives only as a branch CreateEvent.
+            and event.get("payload", {}).get("ref_type") in ("repository", "branch")
         )
         if not (is_push or is_create):
             continue

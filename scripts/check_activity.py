@@ -18,7 +18,14 @@ last_run = datetime.fromisoformat(LAST_RUN_UTC.replace("Z", "+00:00"))
 
 changed = False
 for event in resp.json():
-    if event["type"] != "PushEvent":
+    # Must match what update_projects.py treats as activity: pushes, new repos,
+    # and new branches (a repo's first push shows up only as a branch CreateEvent).
+    is_push = event["type"] == "PushEvent"
+    is_create = (
+        event["type"] == "CreateEvent"
+        and event.get("payload", {}).get("ref_type") in ("repository", "branch")
+    )
+    if not (is_push or is_create):
         continue
     if event["repo"]["name"] == f"{USERNAME}/{USERNAME}":
         continue
